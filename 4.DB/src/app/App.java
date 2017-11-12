@@ -9,12 +9,12 @@ import javafx.stage.Stage;
 
 public class App extends Application{
   public static void main(String[] args) {
-    Application.launch(args);
+    Application.launch();
   }
 
   @Override
   public void start(Stage primaryStage) throws Exception {
-    Parent root = FXMLLoader.load(getClass().getResource("./view.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("view.fxml"));
     primaryStage.setTitle("DB読み書き");
     Scene scene = new Scene(root);
     primaryStage.setScene(scene);

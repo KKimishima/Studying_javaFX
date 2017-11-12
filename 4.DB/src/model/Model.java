@@ -68,21 +68,19 @@ public class Model {
       ps.setString(1, str);
       // 収納用配列
       ResultSet i = ps.executeQuery();
-      this.map = new HashMap<>();
-      this.list = new ArrayList<>();
+      this.list = new ArrayList<Map<String, String>>();
 
       while (i.next()){
+        // 参照なので毎回新しいインスタンスを創る
+        this.map =  new HashMap<String,String>();
         this.map.clear();
         this.map.put("id",String.valueOf(i.getString("id")));
         this.map.put("name",i.getString("name"));
-        System.out.println(this.map.get("id"));
-        this.list.add(map);
+        System.out.println(this.map);
+        this.list.add(this.map);
+        System.out.println(this.list);
       }
     }catch (SQLException e){}
-
-    //System.out.println(this.list.get(0));
-    //System.out.println(this.list.get(1));
-    //System.out.println(this.list.get(2));
 
     return this.list;
   }

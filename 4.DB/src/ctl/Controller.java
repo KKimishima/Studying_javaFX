@@ -51,14 +51,6 @@ public class Controller {
   public void onSearch(){
     // 結果の取得
     this.list = model.dbSearch(searchTex.getText());
-
-    //System.out.println(this.list.get(0).get("id")+":"+this.list.get(0).get("name"));
-    //System.out.println(this.list.get(1).get("id")+":"+this.list.get(1).get("name"));
-    //System.out.println(this.list.get(0).get);
-//    if(list.get(0) == null){
-//      System.out.println("失敗");
-//    }
-
     // 表の中の初期化
     table.getItems().clear();
     // 登録用クラスを登録
