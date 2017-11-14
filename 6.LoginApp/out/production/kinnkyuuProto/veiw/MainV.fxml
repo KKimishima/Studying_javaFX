@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="433.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ctl.MainPage">
+   <children>
+      <TableView layoutX="289.0" layoutY="49.0" prefHeight="335.0" prefWidth="335.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <Label layoutX="312.0" layoutY="24.0" text="Label" />
+      <TextField layoutX="376.0" layoutY="20.0" />
+      <Button layoutX="523.0" layoutY="20.0" mnemonicParsing="false" text="Button" />
+      <TextField layoutX="65.0" layoutY="139.0" />
+      <TextField layoutX="69.0" layoutY="224.0" />
+      <Button layoutX="67.0" layoutY="344.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="134.0" layoutY="344.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="207.0" layoutY="344.0" mnemonicParsing="false" text="Button" />
+   </children>
+</AnchorPane>
