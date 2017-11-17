@@ -14,6 +14,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.AllData;
 import model.viewRecord;
 
 import javax.xml.crypto.Data;
@@ -45,10 +46,8 @@ public class MainPage implements Initializable {
   private TableColumn<viewRecord,String> mallColumn;
 
   private ObservableList<viewRecord> data;
-//  private ObservableList<viewRecord> data = FXCollections.observableArrayList(
-//          new viewRecord("intithoge1","hogehoe1"),
-//          new viewRecord("inithoge2","hogehoe2")
-//  );
+
+  AllData allData = new AllData();
 
   static {
     FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource("veiw/MainV.fxml"));
@@ -65,19 +64,25 @@ public class MainPage implements Initializable {
 
   @Override
   public void initialize(URL url, ResourceBundle rb) {
-    this.data = FXCollections.observableArrayList(
-          new viewRecord("intithoge1","hogehoe1"),
-          new viewRecord("inithoge2","hogehoe2")
-    );
+    // 表示するアイテムの設定
+    data = FXCollections.observableArrayList();
     addlessVierw.setItems(data);
     nameColumn.setCellValueFactory(new PropertyValueFactory<viewRecord,String>("MAILADDRESS"));
     mallColumn.setCellValueFactory(new PropertyValueFactory<viewRecord,String>("NAME"));
+
+    // セルの選択のキャッチ
     addlessVierw.getSelectionModel().selectedItemProperty().addListener((observable,oldVal,newVal )->{
       // ぽるぽが発生したら落とす
       if(newVal == null){ return; }
-        this.addTex.setText(newVal.getMAILADDRESS());
-        this.nameTex.setText(newVal.getNAME());
+        addTex.setText(newVal.getMAILADDRESS());
+        nameTex.setText(newVal.getNAME());
     });
+    // 初期アイテム表示
+    for(int i = 0;i < this.allData.getList().size();i++){
+      addlessVierw.getItems().add(new viewRecord(allData.getList().get(i).get("address"),
+          allData.getList().get(i).get("name"))
+      );
+    }
   }
 
   /**
